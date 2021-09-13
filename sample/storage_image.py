@@ -1,9 +1,9 @@
-import requests
+import cv2
+import numpy as np
 
-params = (
-('op', 'CREATE')
-)
-file = open('./assets/images.jpg','rb')
+img = cv2.imread('/home/hc/Desktop/workplace/dachanh/hadoop-python/sample/assets/images.jpg')
+img = np.array(img,np.uint8)
+shape = img.shape
 
-response =  requests.put('http://localhost:9000/input',params=params,files=file)
-print(response.status_code)
+np.savetxt('/home/hc/Desktop/workplace/dachanh/hadoop-python/sample/assets/file.txt',img.reshape(img.shape[0],-1))
+
