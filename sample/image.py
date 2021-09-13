@@ -5,5 +5,5 @@ client = Client('localhost',9000)
 
 
 for l in client.ls(['/home/']):
-    print(l)
+    print(l['path'])
 
