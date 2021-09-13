@@ -1,8 +1,9 @@
-from snakebite.client import Client
+import requests
 
+params = (
+('op', 'CREATE')
+)
+file = open('./assets/images.jpg','rb')
 
-client = Client('localhost',9000)
-
-
-for l in client.text(['/input/f1.txt']):
-    print(l)
+response =  requests.put('http://localhost:9000/input',params=params,files=file)
+print(response.status_code)
